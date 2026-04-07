@@ -30,19 +30,21 @@ router.post("/", async (req, res) => {
       },
     });
 
-    await transporter.sendMail({
-      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`, // 👈 always YOUR email
-      to: process.env.EMAIL_USER,
-      subject: `New message from ${name}`,
-      replyTo: email, // 👈 THIS IS KEY 🔥
-      text: `
-Name: ${name}
-Email: ${email}
+//     await transporter.sendMail({
+//       from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`, // 👈 always YOUR email
+//       to: process.env.EMAIL_USER,
+//       subject: `New message from ${name}`,
+//       replyTo: email, // 👈 THIS IS KEY 🔥
+//       text: `
+// Name: ${name}
+// Email: ${email}
 
-Message:
-${message}
-  `,
-    });
+// Message:
+// ${message}
+//   `,
+//     });
+
+console.log("Message received:", { name, email, message });
 
     res.json({ success: true });
   } catch (err) {
