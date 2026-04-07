@@ -44,13 +44,18 @@ ${message}
   `,
     });
 
-// console.log("Message received:", { name, email, message });
+console.log("Message received:", { name, email, message });
 
     res.json({ success: true });
   } catch (err) {
     console.error("ERROR:", err);
     res.status(500).json({ error: "Something went wrong" });
   }
+});
+
+
+router.get("/", async (req, res) => {
+  return res.status(200).json({ msg: "Working" });
 });
 
 export default router;
