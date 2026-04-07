@@ -36,14 +36,15 @@ const Contact = () => {
 
       const data = await res.json();
 
-      if (data.success) {
-        setStatus("Message sent successfully 🚀");
-        setForm({ name: "", email: "", message: "" });
-      } else {
-        setStatus("Something went wrong ❌");
+      if (!res.ok) {
+        throw new Error(data.error || "Request failed");
       }
-    } catch (err) {
-      setStatus("Server error ❌");
+
+      setStatus("Message sent successfully 🚀");
+      setForm({ name: "", email: "", message: "" });
+
+    } catch (err: any) {
+      setStatus(err.message || "Server error ❌");
     } finally {
       setLoading(false);
     }
@@ -52,7 +53,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen pt-24 px-6 bg-white dark:bg-black text-black dark:text-white">
       <div className="max-w-3xl mx-auto">
-        
+
         {/* Heading */}
         <motion.h1
           className="text-4xl font-bold mb-10"
