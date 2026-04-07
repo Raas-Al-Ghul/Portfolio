@@ -7,7 +7,7 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+app.use(cors( {origin: "https://itsadev.vercel.app"} ));
 app.use(express.json());
 
 app.use("/contact", contactRoute);

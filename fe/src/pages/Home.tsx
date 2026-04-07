@@ -1,10 +1,14 @@
 import * as Icons from "lucide-react";
 console.log(Icons);
-import { motion } from "framer-motion";
-import {GitGraph, ExternalLink, Mail } from "lucide-react";
 
+import { motion } from "framer-motion";
+import { GitGraph, ExternalLink, Mail } from "lucide-react";
+import { useState } from "react";
+import ResumeModal from "../components/ResumeModal";
 
 const Home = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="min-h-screen flex items-center justify-center px-6 bg-white dark:bg-black text-black dark:text-white">
 
@@ -12,7 +16,6 @@ const Home = () => {
 
         {/* Intro */}
         <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-
           <p className="text-lg text-gray-500 dark:text-gray-400">
             Hi, I’m 
           </p>
@@ -33,21 +36,31 @@ const Home = () => {
 
         {/* Buttons */}
         <motion.div
-          className="flex gap-4 mt-6"
+          className="flex gap-4 mt-6 flex-wrap"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <a
-            href="/resume.pdf"
-            download
+          {/* Preview */}
+          <button
+            onClick={() => setOpen(true)}
             className="px-6 py-3 rounded-xl bg-black text-white dark:bg-white dark:text-black font-medium hover:scale-105 transition"
+          >
+            Preview Resume 👀
+          </button>
+
+          {/* Download */}
+          <a
+            href="/Adarsh_Mishra_Resume.pdf"
+            download
+            className="px-6 py-3 rounded-xl border border-gray-400 hover:scale-105 transition"
           >
             Download Resume
           </a>
 
+          {/* Contact */}
           <a
-            href="#contact"
+            href="contact"
             className="px-6 py-3 rounded-xl border border-gray-400 hover:scale-105 transition"
           >
             Contact Me
@@ -101,6 +114,9 @@ const Home = () => {
         </motion.div>
 
       </div>
+
+      {/* Modal */}
+      <ResumeModal isOpen={open} onClose={() => setOpen(false)} />
     </div>
   );
 };
