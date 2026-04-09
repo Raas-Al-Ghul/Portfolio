@@ -17,7 +17,7 @@ const Home = () => {
         {/* Intro */}
         <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           <p className="text-lg text-gray-500 dark:text-gray-400">
-            Hi, I’m 
+            Hi, I’m
           </p>
 
           <h1 className="text-5xl md:text-6xl font-bold mt-2 bg-gradient-to-r from-purple-400 to-blue-500 text-transparent bg-clip-text">
@@ -74,13 +74,17 @@ const Home = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
         >
-          <a href="#" target="_blank">
+          <a href="https://github.com/Raas-Al-Ghul" target="_blank">
             <GitGraph className="hover:scale-110 transition" />
           </a>
-          <a href="#" target="_blank">
+          <a href="https://www.linkedin.com/in/adarsh-mishra-1999am" target="_blank">
             <ExternalLink className="hover:scale-110 transition" />
           </a>
-          <a href="#">
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=adarsh.m9137@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Mail className="hover:scale-110 transition" />
           </a>
         </motion.div>

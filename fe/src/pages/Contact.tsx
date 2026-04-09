@@ -127,13 +127,17 @@ const Contact = () => {
 
         {/* Social Links */}
         <div className="mt-10 flex justify-center gap-6 text-sm text-gray-600 dark:text-gray-400">
-          <a href="https://github.com/yourusername" target="_blank">
+          <a href="https://github.com/AdarshC0de" target="_blank">
             GitHub
           </a>
-          <a href="https://linkedin.com/in/yourusername" target="_blank">
+          <a href="https://www.linkedin.com/in/adarsh-mishra-1999am" target="_blank">
             LinkedIn
           </a>
-          <a href="mailto:your@email.com">
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=adarsh.m9137@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Email
           </a>
         </div>
