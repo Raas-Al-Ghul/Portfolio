@@ -41,7 +41,7 @@ router.post("/", async (req, res) => {
 
       // IMPORTANT:
       // This MUST be the SAME gmail used in your Resend account
-      to: "adarsh2213student@gmail.com",
+      to: "adarsh.m9137@gmail.com",
 
       subject: `New Portfolio Message from ${name}`,
 
