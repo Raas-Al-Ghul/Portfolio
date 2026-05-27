@@ -1,9 +1,10 @@
 import { Router } from "express";
 import { PrismaClient } from "@prisma/client";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 const router = Router();
 const prisma = new PrismaClient();
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 router.post("/", async (req, res) => {
   try {
@@ -13,38 +14,21 @@ router.post("/", async (req, res) => {
       return res.status(400).json({ error: "All fields required" });
     }
 
+    // Save to DB
     await prisma.contact.create({
       data: { name, email, message },
     });
 
-    const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 587,
-      secure: false,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-      tls: {
-        rejectUnauthorized: false,
-      },
-    });
-
-    await transporter.sendMail({
-      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`, // 👈 always YOUR email
-      to: process.env.EMAIL_USER,
+    // Send email via Resend
+    await resend.emails.send({
+      from: "Portfolio Contact <onboarding@resend.dev>",
+      to: process.env.EMAIL_USER!,
       subject: `New message from ${name}`,
-      replyTo: email, // 👈 THIS IS KEY 🔥
-      text: `
-Name: ${name}
-Email: ${email}
-
-Message:
-${message}
-  `,
+      replyTo: email,
+      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
     });
 
-console.log("Message received:", { name, email, message });
+    console.log("Message received:", { name, email, message });
 
     res.json({ success: true });
   } catch (err) {
@@ -52,7 +36,6 @@ console.log("Message received:", { name, email, message });
     res.status(500).json({ error: "Something went wrong" });
   }
 });
-
 
 router.get("/", async (req, res) => {
   return res.status(200).json({ msg: "Working" });
