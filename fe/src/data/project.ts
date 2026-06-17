@@ -20,4 +20,11 @@ export const projects = [
     github: "#",
     live: "https://deltalens-ai-agent.vercel.app/",
   },
+  {
+    title: "Gold Certificate Parser",
+    description: "Built an automated gold certificate verification system that extracts and indexes serial ranges from official certificates for instant search and authentication.",
+    tech: ["NEXT", "Google Gemini AI"],
+    github: "https://github.com/AdarshC0de/Gold-Cert-Parser",
+    live: "https://gold-cert-parser.vercel.app/",
+  },
 ];
