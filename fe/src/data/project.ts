@@ -8,14 +8,14 @@ export const projects = [
   },
   {
     title: "Onchain Wallet Agent",
-    description: "Developed a cross-exchange trading intelligence dashboard that monitors live market data, detects arbitrage opportunities, and provides actionable trading insights with automated spread analysis.",
+    description: "Created an AI-powered blockchain analytics agent that analyzes wallet addresses across multiple chains, generating insights on portfolio composition, transaction history, trading behavior, and asset performance.",
     tech: ["React", "Express"],
     github: "#",
     live: "https://onchainbyaditi.vercel.app/",
   },
   {
     title: "DeltaLens – Arbitrage Terminal",
-    description: "Created an AI-powered blockchain analytics agent that analyzes wallet addresses across multiple chains, generating insights on portfolio composition, transaction history, trading behavior, and asset performance.",
+    description: "Developed a cross-exchange trading intelligence dashboard that monitors live market data, detects arbitrage opportunities, and provides actionable trading insights with automated spread analysis.",
     tech: ["NEXT", "Express", "Google Gemini AI"],
     github: "#",
     live: "https://deltalens-ai-agent.vercel.app/",
