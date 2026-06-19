@@ -27,4 +27,11 @@ export const projects = [
     github: "https://github.com/AdarshC0de/Gold-Cert-Parser",
     live: "https://gold-cert-parser.vercel.app/",
   },
+  {
+    title: "Solar Dashboard",
+    description: "Built a full-stack energy management dashboard for monitoring renewable power plants, analyzing generation data, tracking deviations, penalties, and real-time performance metrics.",
+    tech: ["NEXT", "PostgreSQL"],
+    github: "https://github.com/AdarshC0de/Solar-Dashboard",
+    live: "https://emsys-solar-dashboard.vercel.app/demo",
+  },
 ];
